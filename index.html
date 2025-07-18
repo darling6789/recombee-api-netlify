@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Recombee API</title>
+</head>
+<body>
+  <h1>Recommended Products</h1>
+  <ul id="results"></ul>
+
+  <script>
+    fetch('/.netlify/functions/recommend?product_id=your_product_id')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('results');
+        data.recommended_items.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item.id || JSON.stringify(item);
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
