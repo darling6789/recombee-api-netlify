@@ -15,7 +15,7 @@ exports.handler = async (event) => {
 
   try {
     const response = await client.send(
-      new rqs.RecommendItemsToItem(productId, 'alexa-fine-jewelry-dot-18k-gold-necklace-w-diamond', count, {
+      new rqs.RecommendItemsToItem(productId, 'irondev', count, {
         scenario: 'Look-a-likes',
         returnProperties: true,
         includedProperties: ['link', 'handle']
