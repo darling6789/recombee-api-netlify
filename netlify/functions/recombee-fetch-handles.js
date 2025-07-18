@@ -12,10 +12,11 @@ const client = new recombee.ApiClient(
 exports.handler = async (event) => {
   const productId = event.queryStringParameters.productId;
   const count = parseInt(event.queryStringParameters.count) || 8;
+  const user_id = event.queryStringParameters.user_ud;
 
   try {
     const response = await client.send(
-      new rqs.RecommendItemsToItem(productId, 'irondev', count, {
+      new rqs.RecommendItemsToItem(productId, user_id, count, {
         scenario: 'Look-a-likes',
         returnProperties: true,
         includedProperties: ['link', 'handle']
