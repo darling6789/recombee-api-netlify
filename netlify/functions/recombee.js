@@ -24,7 +24,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         scenario: 'Look-a-likes',
         returnProperties: true,
-        includedProperties: ['link'],
+        includedProperties: ['link', 'itemId'],
       }),
     });
 
@@ -37,12 +37,9 @@ exports.handler = async (event) => {
 
     const data = await recombeeResponse.json();
 
-    // Return just the item IDs (or full properties if needed)
-    const recommended = data.recomms.map(item => item.id);
-
     return {
       statusCode: 200,
-      body: JSON.stringify({ recommended_items: recommended }),
+      body: JSON.stringify({ recommended_items: data.recomms }),
     };
   } catch (error) {
     return {
