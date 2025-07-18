@@ -12,7 +12,19 @@ const client = new recombee.ApiClient(
 exports.handler = async (event) => {
   const productId = event.queryStringParameters.productId;
   const count = parseInt(event.queryStringParameters.count) || 8;
-  const user_id = event.queryStringParameters.user_ud;
+  const user_id = event.queryStringParameters.user_id; // <-- fixed typo here
+
+  // Validate required parameters
+  if (!productId || !user_id) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: `"productId" and "user_id" are required.` }),
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
+    };
+  }
 
   try {
     const response = await client.send(
