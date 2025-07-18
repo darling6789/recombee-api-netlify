@@ -2,11 +2,10 @@ const recombee = require('recombee-api-client');
 const rqs = recombee.requests;
 
 const client = new recombee.ApiClient(
-  'the-jewellery-room-dev', // Your Recombee DB
-  'HBazspyHEEpo9jcv6mugz9DI49HXAEQXNn4h8mRbVQs46ikWC8xNjHTZpn9iImLa', // PRIVATE token
+  'irondev-dev', // Your Recombee DB
+  'PDsRROOobUULxV4l3NT95L9tKxKZ2qMt9glC4qettpkqHyaQOr8glEuxuKcCn0iW', // PRIVATE token
   {
-    region: 'eu-west',
-    tokenType: 'private' // 🔥 important!
+    region: 'eu-west'
   }
 );
 
