@@ -15,10 +15,21 @@ exports.handler = async (event) => {
   const user_id = event.queryStringParameters.user_id; // <-- fixed typo here
 
   // Validate required parameters
-  if (!productId || !user_id) {
+  if (!productId) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: `"productId" and "user_id" are required.` }),
+      body: JSON.stringify({ error: `"productId" is required.` }),
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
+    };
+  }
+
+  if (!user_id) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: `"user_id" is required.` }),
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
