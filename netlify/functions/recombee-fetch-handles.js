@@ -2,9 +2,12 @@ const recombee = require('recombee-api-client');
 const rqs = recombee.requests;
 
 const client = new recombee.ApiClient(
-  'the-jewellery-room-dev',
-  'HBazspyHEEpo9jcv6mugz9DI49HXAEQXNn4h8mRbVQs46ikWC8xNjHTZpn9iImLa',
-  { region: 'eu-west' }
+  'the-jewellery-room-dev', // Your Recombee DB
+  'HBazspyHEEpo9jcv6mugz9DI49HXAEQXNn4h8mRbVQs46ikWC8xNjHTZpn9iImLa', // PRIVATE token
+  {
+    region: 'eu-west',
+    tokenType: 'private' // 🔥 important!
+  }
 );
 
 exports.handler = async (event) => {
@@ -20,7 +23,9 @@ exports.handler = async (event) => {
       })
     );
 
-    const handles = response.recomms.map(item => item.values.handle).filter(Boolean);
+    const handles = response.recomms
+      .map(item => item.values.handle)
+      .filter(Boolean);
 
     return {
       statusCode: 200,
