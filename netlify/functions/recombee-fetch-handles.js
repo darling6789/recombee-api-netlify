@@ -10,12 +10,12 @@ const client = new recombee.ApiClient(
 );
 
 exports.handler = async (event) => {
-  const productId = event.queryStringParameters.productId;
+  const product_id = event.queryStringParameters.product_id;
   const count = parseInt(event.queryStringParameters.count) || 8;
   const user_id = event.queryStringParameters.user_id; // <-- fixed typo here
 
   // Validate required parameters
-  if (!productId) {
+  if (!product_id) {
     return {
       statusCode: 400,
       body: JSON.stringify({ error: `"productId" is required.` }),
@@ -39,7 +39,7 @@ exports.handler = async (event) => {
 
   try {
     const response = await client.send(
-      new rqs.RecommendItemsToItem(productId, user_id, count, {
+      new rqs.RecommendItemsToItem(product_id, user_id, count, {
         scenario: 'Look-a-likes',
         returnProperties: true,
         includedProperties: ['link', 'handle']
