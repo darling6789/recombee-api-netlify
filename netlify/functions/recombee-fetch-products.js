@@ -189,10 +189,10 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({ 
-        products: orderedProducts, 
+        products: handles, 
         market,
         recommId: response.recommId,
-        totalFound: products.length,
+        totalFound: handles.length,
         totalAvailable: orderedProducts.length
       }),
       headers: {
