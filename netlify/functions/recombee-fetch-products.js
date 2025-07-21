@@ -189,6 +189,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({ 
+        handles: handles,
         products: orderedProducts, 
         market,
         recommId: response.recommId,
