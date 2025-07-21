@@ -12,8 +12,8 @@ const client = new recombee.ApiClient(
 // Function to fetch product data from Shopify Storefront API
 async function fetchShopifyProducts(handles, shopDomain, accessToken, market = null) {
   const query = `
-    query getProducts($handles: [String!]!) {
-      products(first: 20, query: $handles) {
+    query getProducts($query: String!) {
+      products(first: 20, query: $query) {
         edges {
           node {
             id
@@ -69,7 +69,7 @@ async function fetchShopifyProducts(handles, shopDomain, accessToken, market = n
   `;
 
   const variables = {
-    handles: handles.map(handle => `handle:${handle}`).join(' OR ')
+    query: handles.map(handle => `handle:${handle}`).join(' OR ')
   };
 
   const headers = {
