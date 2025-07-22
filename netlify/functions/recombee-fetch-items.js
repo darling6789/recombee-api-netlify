@@ -226,7 +226,7 @@ exports.handler = async (event) => {
   
   // Detect market and generate user ID
   const market = detectMarket(event);
-  const user_id = generateUserId(event);
+  const user_id = null;
   
   // Validate required parameters
   if (!product_id) {
