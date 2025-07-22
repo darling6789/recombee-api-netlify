@@ -2,8 +2,8 @@ const recombee = require('recombee-api-client');
 const rqs = recombee.requests;
 
 const client = new recombee.ApiClient(
-  'irondev-dev', // Your Recombee DB
-  'PDsRROOobUULxV4l3NT95L9tKxKZ2qMt9glC4qettpkqHyaQOr8glEuxuKcCn0iW', // PRIVATE token
+  'irondev-dev',
+  'PDsRROOobUULxV4l3NT95L9tKxKZ2qMt9glC4qettpkqHyaQOr8glEuxuKcCn0iW',
   {
     region: 'eu-west'
   }
@@ -77,7 +77,6 @@ async function fetchShopifyProducts(handles, shopDomain, accessToken, market = n
     'X-Shopify-Storefront-Access-Token': accessToken
   };
 
-  // Add market context if provided
   if (market) {
     headers['Shopify-Storefront-Buyer-Context'] = JSON.stringify({
       country: market.toUpperCase(),
