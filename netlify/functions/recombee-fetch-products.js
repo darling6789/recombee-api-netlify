@@ -124,7 +124,7 @@ exports.handler = async (event) => {
   const count = parseInt(event.queryStringParameters.count) || 8;
   const user_id = event.queryStringParameters.user_id || 'anonymous-user';
   const shop_domain = event.queryStringParameters.shop_domain;
-  const storefront_token = event.queryStringParameters.storefront_token;
+  const storefront_token = 'f1d08e9cb36b69fcfdcc839f8fefe8a9';
   
   // Detect market for localization
   const market = detectMarket(event);
