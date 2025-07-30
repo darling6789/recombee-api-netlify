@@ -1,11 +1,9 @@
-const dotenv = require('dotenv');
-dotenv.config();
 const recombee = require('recombee-api-client');
 const rqs = recombee.requests;
 
 const client = new recombee.ApiClient(
-  process.env.RECOMBEE_DB,
-  process.env.RECOMBEE_TOKEN,
+  'irondev-dev',
+  'PDsRROOobUULxV4l3NT95L9tKxKZ2qMt9glC4qettpkqHyaQOr8glEuxuKcCn0iW',
   {
     region: 'eu-west'
   }
@@ -126,7 +124,7 @@ exports.handler = async (event) => {
   const count = parseInt(event.queryStringParameters.count) || 8;
   const user_id = event.queryStringParameters.user_id || 'anonymous-user';
   const shop_domain = event.queryStringParameters.shop_domain;
-  const storefront_token = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const storefront_token = 'f1d08e9cb36b69fcfdcc839f8fefe8a9';
   
   // Detect market for localization
   const market = detectMarket(event);
