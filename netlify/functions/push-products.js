@@ -1,4 +1,4 @@
-const fetch = require('node-fetch'); // This works with node-fetch@2
+const fetch = require('node-fetch');
 const recombee = require('recombee-api-client');
 const rqs = recombee.requests;
 

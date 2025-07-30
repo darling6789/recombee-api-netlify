@@ -204,7 +204,7 @@ exports.handler = async (event) => {
   // Set CORS headers for all responses
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization, cache-control',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Content-Type': 'application/json'
   };
@@ -226,7 +226,7 @@ exports.handler = async (event) => {
   
   // Detect market and generate user ID
   const market = detectMarket(event);
-  const user_id = null;
+  const user_id = generateUserId(event);
   
   // Validate required parameters
   if (!product_id) {
